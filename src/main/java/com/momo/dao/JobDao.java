@@ -7,6 +7,13 @@ import javax.servlet.ServletContext;
 import com.momo.common.DBConnection;
 import com.momo.dto.JobDto;
 
+/**
+ * Dao : 데이터 액세스 객체(Data Access Object)
+ * 데이터베이스와의 상호작용을 관리하고 데이터베이스에서 데이터를 읽고 쓰는 데 사용되는 객체
+ * 
+ * Dto : 데이터 전송 객체(Data Transfer Object)
+ * 데이터를 전송하거나 전달하기 위해 사용되는 객체(메서드X)
+ */
 public class JobDao extends DBConnection {
 	
 	// 생성자

@@ -25,5 +25,10 @@ public class DeptDto {
 	public void setLocal_name(String local_name) {
 		this.local_name = local_name;
 	}
+	
+	@Override
+	public String toString() {
+		return dept_id + " : " + dept_title;
+	}
 
 }

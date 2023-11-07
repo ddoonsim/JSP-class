@@ -24,7 +24,7 @@ public class JobDto {
 	
 	@Override
 	public String toString() {
-		return jobCode + " | " + jobName + "\n";
+		return jobCode + " : " + jobName + "\n";
 	}
 
 }

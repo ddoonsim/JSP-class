@@ -36,6 +36,8 @@ public class DeptListController extends HttpServlet {
 		// DB에 접근해서 리스트를 조회
 		DeptDao dao = new DeptDao(request.getServletContext()) ;
 		List<DeptDto> list = dao.getList() ;
+		System.out.println("===================deptList");
+		System.out.println(list);
 		
 		request.setAttribute("list", list) ;
 		request.getRequestDispatcher("deptList.jsp").forward(request, response) ;
