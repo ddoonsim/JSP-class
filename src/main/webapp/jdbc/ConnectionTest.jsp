@@ -22,6 +22,26 @@
 	
 	// 자원 반납 필수
 	dbcon.close() ;
+	
+	out.print("<br>driver : " + application.getInitParameter("driver")) ;
+	out.print("<br>url : " + application.getInitParameter("url")) ;
+	out.print("<br>id : " + application.getInitParameter("id")) ;
+	out.print("<br>pw : " + application.getInitParameter("pw")) ;
+%>              
+
+<hr><br>
+
+<h2>JDBC 테스트 2</h2>
+
+<%
+	DBConnection dbcon2 = new DBConnection(
+							application.getInitParameter("driver"), 
+							application.getInitParameter("url"), 
+							application.getInitParameter("id"), 
+							application.getInitParameter("pw")
+							) ;
+
+	dbcon2.close() ;
 %>
 
 </body>

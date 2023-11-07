@@ -39,6 +39,9 @@ public class DBConnection {
 		}
 	}
 	
+	/*
+	 * 생성자2
+	 */
 	public DBConnection(String driver, String url, String id, String pw) {
 		try {
 			// 1. 드라이버 로딩
