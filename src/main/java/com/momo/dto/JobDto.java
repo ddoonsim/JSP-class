@@ -1,6 +1,6 @@
 package com.momo.dto;
 
-public class Job {
+public class JobDto {
 	
 	// 필드
 	private String jobCode ;

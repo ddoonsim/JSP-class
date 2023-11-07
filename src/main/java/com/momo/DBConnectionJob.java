@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.momo.dto.Job;
+import com.momo.dto.JobDto;
 
 public class DBConnectionJob {
 
@@ -22,7 +22,7 @@ public class DBConnectionJob {
 		Statement stmt = null ;
 		ResultSet rs = null ;
 		
-		List<Job> list = new ArrayList<>() ;
+		List<JobDto> list = new ArrayList<>() ;
 		
 		try {
 			// 1. 오라클 드라이버(라이브러리) 확인
@@ -39,7 +39,7 @@ public class DBConnectionJob {
 			rs = stmt.executeQuery(sql) ;
 			// 결과 출력
 			while (rs.next()) {
-				Job job = new Job() ;
+				JobDto job = new JobDto() ;
 				job.setJobCode(rs.getString(1));
 				job.setJobName(rs.getString(2));
 				list.add(job) ;

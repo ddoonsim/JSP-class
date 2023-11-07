@@ -16,7 +16,7 @@
   	<param-value>web.xml에 저장한 초기화 변수</param-value>
   </context-param>
   
-  <!-- 데이터베이스 접속 정보 -->
+  <!-- 데이터베이스 접속 설정 정보 -->
   <context-param>
   	<param-name>driver</param-name>
   	<param-value>oracle.jdbc.OracleDriver</param-value>

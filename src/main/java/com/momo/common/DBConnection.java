@@ -6,7 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.servlet.ServletContext;
 
+/**
+ * 연결 객체 생성과 연결 해제를(close) 위한 클래스
+ */
 public class DBConnection {
 	
 	public Connection con ;
@@ -15,7 +19,7 @@ public class DBConnection {
 	public ResultSet rs ;
 	
 	/* 
-	 * 생성자 - Connection 객체 생성
+	 * 생성자 1 - Connection 객체 생성
 	 */
 	public DBConnection() {
 		try {
@@ -40,7 +44,7 @@ public class DBConnection {
 	}
 	
 	/*
-	 * 생성자2
+	 * 생성자 2
 	 */
 	public DBConnection(String driver, String url, String id, String pw) {
 		try {
@@ -51,6 +55,28 @@ public class DBConnection {
 			con = DriverManager.getConnection(url, id, pw) ;
 			System.out.println("DB 연결 성공(인수 생성자 1)");
 			
+		} catch (ClassNotFoundException e) {
+			System.out.println("⚠️드라이버 로딩 실패");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("⚠️connection 객체 생성 실패");
+			e.printStackTrace();
+		}
+	}
+	
+	/*
+	 * 생성자 3
+	 */
+	public DBConnection(ServletContext application) {
+		String driver = application.getInitParameter("driver") ;
+		String url = application.getInitParameter("url") ;
+		String id = application.getInitParameter("id") ;
+		String pw = application.getInitParameter("pw") ;
+		
+		try {
+			Class.forName(driver) ;
+			con = DriverManager.getConnection(url, id, pw) ;
+			System.out.println("application 내장객체를 활용한 Connection 생성");
 		} catch (ClassNotFoundException e) {
 			System.out.println("⚠️드라이버 로딩 실패");
 			e.printStackTrace();
