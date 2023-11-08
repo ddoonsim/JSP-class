@@ -13,6 +13,8 @@ import javax.servlet.ServletContext;
  */
 public class DBConnection {
 	
+	// DB연결 성공 메시지가 출력됐는데도 con이 null인 경우 오류가 발생할 수 있음
+	// ∵ 커넥션을 얻어오고 변수con에 저장❌
 	public Connection con ;
 	public Statement stmt ;
 	public PreparedStatement pstmt ;
