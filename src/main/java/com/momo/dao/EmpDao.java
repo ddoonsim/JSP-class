@@ -3,8 +3,8 @@ package com.momo.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.ServletContext;
-import com.momo.common.DBConnection;
+
+import com.momo.common.DBConnPool;
 import com.momo.dto.EmpDto;
 
 /**
@@ -14,11 +14,16 @@ import com.momo.dto.EmpDto;
  * Dao -> mapper
  * 
  */
-public class EmpDao extends DBConnection{
+public class EmpDao extends DBConnPool{
 	
-	public EmpDao(ServletContext application) {
-		super(application) ;
-	}
+	/**
+	 * 생성자를 이용하여 Connection 객체를 생성후 멤버변수인 con에 저장
+	 * 커넥션 풀을 이용하면 더이상 application 필요 없음
+	 * @param application
+	 */
+	//public EmpDao(ServletContext application) {
+	//	super(application) ;
+	//}
 	
 	/**
 	 * [데이터베이스로부터 사원의 목록을 조회하여 반환하는 메서드]
@@ -33,6 +38,7 @@ public class EmpDao extends DBConnection{
 			String sql = "SELECT * FROM EMPLOYEE" ;
 			
 			rs = stmt.executeQuery(sql) ;
+			
 			while(rs.next()) {
 				EmpDto dto = new EmpDto() ;
 				dto.setEmp_id(rs.getString(1));
@@ -40,7 +46,10 @@ public class EmpDao extends DBConnection{
 				dto.setEmp_no(rs.getString(3));
 				
 				list.add(dto) ;
-			} ;
+			} 
+			
+			// 자원 반납
+			close() ;
 			
 		} catch (SQLException e) {
 			System.out.println("SQLException 예외사항 발생");

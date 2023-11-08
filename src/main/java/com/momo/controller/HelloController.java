@@ -25,6 +25,7 @@ public class HelloController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// 한글깨짐을 방지하기 위해 인코딩 설정 및 컨텐츠 타입 지정
 		response.setCharacterEncoding("UTF-8") ;
 		response.setContentType("text/html; charset=UTF-8") ;
 		

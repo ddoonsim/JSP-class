@@ -24,7 +24,7 @@ public class EmpListController extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 사원 리스트 조회
-		EmpDao dao = new EmpDao(request.getServletContext()) ;
+		EmpDao dao = new EmpDao() ;
 		List<EmpDto> list = dao.getList() ;
 		
 		// 리스트를 request영역에 저장
