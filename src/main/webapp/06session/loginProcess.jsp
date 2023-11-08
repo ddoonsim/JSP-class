@@ -38,7 +38,7 @@
 		 request.getRequestDispatcher("main.jsp").forward(request, response) ;
 	 } else {
 		 // 로그인 실패 -> 로그인 페이지로 이동 후 메세지 출력
-		 request.getRequestDispatcher("loginForm.jsp").forward(request, response) ;
+		 request.getRequestDispatcher("loginForm.jsp?isError=1").forward(request, response) ;
 	 }
 	 
 %>
