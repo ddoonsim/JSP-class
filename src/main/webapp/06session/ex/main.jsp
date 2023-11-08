@@ -9,6 +9,8 @@
 <body>
 
 <h3><%= session.getAttribute("userId") %>님 환영합니다.</h3>
+<br>
+<a href="/logoutProcess">로그아웃</a>
 
 </body>
 </html>

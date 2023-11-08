@@ -16,10 +16,19 @@
 					
 	/loginProcess : 루트경로를 기준으로
 					/loginProcess
+					## 06session/ex 상위 경로 모두 ❌
 					
 	../loginProcess : 상위 경로로 이동
 					/06session/loginProcess
  -->
+
+<%
+	String isError = request.getParameter("isError") ;
+
+	if(isError != null && isError.equals("1")) {
+		out.print("아이디/비밀번호를 확인해주세요.") ;
+	}
+%>
 
 <form action="loginProcess" method="post" name="loginFrm">
         아이디 : <input type="text" name="user_id" required="required"/><br />
