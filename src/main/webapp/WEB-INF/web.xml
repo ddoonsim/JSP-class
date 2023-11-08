@@ -47,5 +47,10 @@
   	<error-code>404</error-code>
   	<location>/Exception.jsp</location>
   </error-page>
+  
+  <!-- 세션 유지시간 설정(단위 : 분) -->
+  <session-config>
+  	<session-timeout>20</session-timeout>
+  </session-config>
  
 </web-app>
