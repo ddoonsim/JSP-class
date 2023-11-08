@@ -24,7 +24,6 @@ public class MemberDao extends DBConnPool{
 			
 			// 쿼리 실행
 			rs = pstmt.executeQuery() ;
-			
 			if(rs.next()) {
 				// 로그인 성공
 				memberDto.setId(rs.getString(1));
@@ -42,6 +41,7 @@ public class MemberDao extends DBConnPool{
 			e.printStackTrace();
 		}
 		
+		close() ;    // 자원 반납
 		return null ;
 	}
 
