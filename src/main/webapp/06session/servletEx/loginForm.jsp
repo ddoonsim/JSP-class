@@ -28,10 +28,9 @@
 	}
 %>
 
-<form action="loginProcess" method="post" name="loginFrm"
-        onsubmit="return validateForm(this);">
-        아이디 : <input type="text" name="user_id" required="required"/><br />
-        패스워드 : <input type="password" name="user_pw" required="required"/><br />
+<form action="loginProcess" method="post" name="loginFrm">
+        아이디 : <input type="text" name="user_id" required="required" value="test"/><br />
+        패스워드 : <input type="password" name="user_pw" required="required" value="1234"/><br />
         <input type="submit" value="로그인하기" />
 </form> 
 
