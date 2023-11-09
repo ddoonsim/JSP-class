@@ -3,6 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+	body {
+		margin: 100px ;
+	}
+</style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -27,6 +32,8 @@
 		out.print("아이디/비밀번호가 일치하지 않습니다. 확인해주세요.") ;
 	}
 %>
+
+<h2>로그인!</h2>
 
 <form action="loginProcess" method="post" name="loginFrm">
         아이디 : <input type="text" name="user_id" required="required" value="test"/><br />

@@ -23,6 +23,7 @@
 <h3>작성자 : <%= dto.getId() %></h3><br>
 <p><%= dto.getContent() %>
 <hr>
+<button onclick="history.back()">목록</button>
 
 </body>
 </html>
