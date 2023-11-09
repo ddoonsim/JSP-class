@@ -14,6 +14,10 @@
 		border-collapse: collapse;
 		text-align: center ;
 	}
+	table {
+		width: 700px ;
+		height: 200px ;
+	}
 </style>
 </head>
 <body>
@@ -39,30 +43,31 @@
 
 <table>
 	<tr>
-		<th>no.</th>
+		<th>일련번호</th>
 		<th>제목</th>
 		<th>내용</th>
 		<th>작성자</th>
-		<th>게시일</th>
+		<th>작성일</th>
 		<th>조회수</th>
 	</tr>
 
 
 <%
-	BoardDao dao = new BoardDao() ;
-	List<BoardDto> boards = dao.getList() ;
+	if(request.getAttribute("list") != null) {
+		List<BoardDto> list = (List<BoardDto>)request.getAttribute("list") ;
 	
-	for(BoardDto board : boards) {
+		for(BoardDto dto : list) {
 %>
-		<tr>
-			<td><%= board.getNum() %></td>
-			<td><%= board.getTitle() %></td>
-			<td><%= board.getContent() %></td>
-			<td><%= board.getId() %></td>
-			<td><%= board.getPostdate() %></td>
-			<td><%= board.getVisitcount() %></td>
-		</tr>
+			<tr>
+				<td><%= dto.getNum() %></td>
+				<td><%= dto.getTitle() %></td>
+				<td><%= dto.getContent() %></td>
+				<td><%= dto.getId() %></td>
+				<td><%= dto.getPostdate() %></td>
+				<td><%= dto.getVisitcount() %></td>
+			</tr>
 <%
+		}
 	}
 %>
 </table>
