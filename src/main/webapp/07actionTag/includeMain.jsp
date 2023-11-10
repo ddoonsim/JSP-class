@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>includeMain</title>
 </head>
 <body>
 
@@ -20,7 +20,7 @@ include지시자 방식에서 선언한 변수 : <%= newVar1 %>
 <p>페이지 영역 공유</p>
 <p>include되는 페이지에서 생성한 변수도 공유가 됨</p>
 <hr>
-
+<!-- ----------------------------------------------------- -->
 <h3>액션태그 방식</h3>
 <!-- 액션태그 방식
 		페이지 영역이 공유되지 않음
