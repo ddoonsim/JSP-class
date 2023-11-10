@@ -40,5 +40,33 @@ public class BoardDao extends DBConnPool{
 		
 		return list ;
 	}
+	
+	/**
+	 * 게시글 1건 조회하여 반환
+	 */
+	public BoardDto getOne(String num) {
+		BoardDto dto = new BoardDto() ;
+		String sql = "select * from board where num = ?" ;
+		try {
+			pstmt = con.prepareStatement(sql) ;
+			pstmt.setString(1, num);
+			rs = pstmt.executeQuery() ;
+			
+			if(rs.next()) {
+				dto.setNum(rs.getString(1));
+				dto.setTitle(rs.getString(2));
+				dto.setContent(rs.getString(3));
+				dto.setId(rs.getString(4));
+				dto.setPostdate(rs.getString(5));
+				dto.setVisitcount(rs.getString(6));
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return dto ;
+	}
 
 }
