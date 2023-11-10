@@ -21,6 +21,9 @@
 		width: 700px ;
 		height: 200px ;
 	}
+	a {
+		text-decoration: none ;
+	}
 </style>
 </head>
 <body>
@@ -79,7 +82,7 @@
  	if(loginBtn != null) {
  		loginBtn.addEventListener('click', function() {
 	 		// 로그인페이지로 이동
-	 		loginForm.action="loginForm.jsp" ;
+	 		loginForm.action="/06session/servletEx/loginForm.jsp" ;
 	 		loginForm.submit() ;
  		}) ;
  	}

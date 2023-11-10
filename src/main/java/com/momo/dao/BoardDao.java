@@ -61,12 +61,12 @@ public class BoardDao extends DBConnPool{
 				dto.setVisitcount(rs.getString(6));
 			}
 			
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
 		return dto ;
 	}
+	
 
 }
