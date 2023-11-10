@@ -21,7 +21,11 @@ public class BoardDetailController extends HttpServlet {
 		String num = request.getParameter("boardNo") ;
 		
 		BoardDao dao = new BoardDao() ;
+		// 조회수 증가
+		dao.visitcountUp(num) ;
+		// 게시글 1건 조회
 		BoardDto one = dao.getOne(num) ;
+		dao.close();
 			
 		request.setAttribute("one", one);
 		request.getRequestDispatcher("06session/servletEx/content.jsp").forward(request, response);

@@ -1,5 +1,6 @@
 package com.momo.dao;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,5 +69,50 @@ public class BoardDao extends DBConnPool{
 		return dto ;
 	}
 	
+	/**
+	 * 새 게시글을 작성하는 메서드
+	 */
+	//public int insertBoard(BoardDto dto) {
+		
+	//}
+	
+	/**
+	 * 게시글의 조회수를 1 증가 시키는 메서드
+	 * 
+	 * insert, update, delete의 반환 타입은 int(몇 건이 처리되었는지)
+	 * 반환타입은 int로 설정
+	 */
+	public int visitcountUp(String num) {
+		int res = 0 ;
+		String sql = "update board set visitcount = visitcount + 1 \r\n"
+				+ "where num = ?" ;
+		try {
+			pstmt = con.prepareStatement(sql) ;
+			pstmt.setString(1, num) ;
+			
+			res = pstmt.executeUpdate() ;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return res ;
+	}
+	
+	/**
+	 * 게시글 1건 삭제하는 메서드
+	 */
+	public int deleteBoard(String num) {
+		int res = 0 ;
+		String sql = "delete from board where num = ?" ;
+		try {
+			pstmt = con.prepareStatement(sql) ;
+			pstmt.setString(1, num);
+			
+			res = pstmt.executeUpdate() ;
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return res ;
+	}
 
 }
