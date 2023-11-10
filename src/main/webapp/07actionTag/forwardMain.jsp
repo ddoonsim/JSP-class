@@ -15,7 +15,6 @@
 	request영역은 공유 ⭕
  -->
 <%
-	request.setCharacterEncoding("utf-8") ;    // 한글 깨짐 처리
 
 	// 내장객체 영역에 속성(값)을 저장
 	pageContext.setAttribute("pageAttr", "페이지 영역") ;

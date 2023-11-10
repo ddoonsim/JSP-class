@@ -19,9 +19,6 @@
 		request 영역 : 
 		<%= request.getAttribute("requestAttr") %>
 	</li>
-	<%
-		request.setCharacterEncoding("utf-8") ;    // 한글 깨짐 처리
-	%>
 	<li>
 		액션태그 param : 
 		<%= request.getParameter("param") %>
