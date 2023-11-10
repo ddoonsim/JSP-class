@@ -49,12 +49,15 @@ public class loginController extends HttpServlet {
 			session.setAttribute("pw", dto.getPass()) ;
 			
 			// 게시글 조회 후 request에 담기
-			BoardDao boardDao = new BoardDao() ;
-			request.setAttribute("list", boardDao.getList()) ;
-			dao.close() ;
+			//BoardDao boardDao = new BoardDao() ;
+			//request.setAttribute("list", boardDao.getList()) ;
+			//dao.close() ;
 			// board.jsp로 이동
 			// sendRedirect를 이용할 경우, request영역이 공유가 되지 않기 때문에 forward방식을 이용해야 함
-			request.getRequestDispatcher("board.jsp").forward(request, response) ;
+			//request.getRequestDispatcher("board.jsp").forward(request, response) ;
+			
+			// 게시판 리스트를 보여주는 컨트롤러 호출
+			response.sendRedirect("/boardList") ;
 		} else {
 			// 이전페이지로 이동, 오류 메세지 출력
 			request.getRequestDispatcher("loginForm.jsp?isErr=1").forward(request, response) ;

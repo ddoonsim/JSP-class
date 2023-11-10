@@ -106,7 +106,7 @@
 %>
 			<tr>
 				<td><%= dto.getNum() %></td>
-				<td><a href="/link?boardNo=<%= dto.getNum() %>"><%= dto.getTitle() %></a></td>
+				<td><a href="/boardRead?boardNo=<%= dto.getNum() %>"><%= dto.getTitle() %></a></td>
 				<td><%= dto.getContent() %></td>
 				<td><%= dto.getId() %></td>
 				<td><%= dto.getPostdate() %></td>

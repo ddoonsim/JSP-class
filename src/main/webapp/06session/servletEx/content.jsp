@@ -15,9 +15,10 @@
 <body>
 
 <%
-	BoardDto dto = (BoardDto)request.getAttribute("content") ;
+	BoardDto dto = (BoardDto)request.getAttribute("one") ;
 %>
 
+<h1>게시글 상세보기</h1>
 <h2><%= dto.getTitle() %></h2>
 <hr>
 <h3>작성자 : <%= dto.getId() %></h3><br>
