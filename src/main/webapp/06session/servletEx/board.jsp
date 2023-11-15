@@ -54,7 +54,7 @@
  		!"".equals(session.getAttribute("id").toString())) {
  		// 로그인한 사용자 -> 로그아웃 버튼 출력
  %>
- 		<%= session.getAttribute("id").toString() %>님 환영합니다.
+ 		<%= session.getAttribute("id").toString() %>님 환영합니다😊
  		<button id="logoutBtn">로그아웃</button>
  <%
  		// -> 세션을 무효화하고 로그인 페이지로 이동

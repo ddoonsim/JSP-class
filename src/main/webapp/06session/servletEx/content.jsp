@@ -19,7 +19,7 @@
 	if(request.getAttribute("one") != null) {
 		BoardDto dto = (BoardDto)request.getAttribute("one") ;
 %>
-<h1>게시글 상세보기</h1>
+<h1>📑게시글 상세보기</h1>
 <h2><%= dto.getTitle() %></h2>
 <p>작성일 : <%= dto.getPostdate() %></p>
 <hr>
