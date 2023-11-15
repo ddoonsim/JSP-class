@@ -49,6 +49,30 @@ public class BoardDao extends DBConnPool{
 	}
 	
 	/**
+	 * 게시글의 총 건수를 조회 후 반환
+	 * - 집계함수를 이용하여 게시글의 총 건수 반환
+	 * @return 게시글의 총 건수
+	 */
+	public int getTotalCnt() {
+		int res = 0 ;
+		String sql = "select count(*) from board" ;
+		
+		try {
+			pstmt = con.prepareStatement(sql) ;
+			rs = pstmt.executeQuery() ;
+			
+			if(rs.next()) {
+				res = rs.getInt(1) ;
+				System.out.println("총 게시물 개수 : " + res);
+			}
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return res ;
+	}
+	
+	/**
 	 * 게시글 1건 조회하여 반환
 	 */
 	public BoardDto getOne(String num) {

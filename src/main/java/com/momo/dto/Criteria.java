@@ -11,6 +11,9 @@ public class Criteria {
 	private int startNum ;
 	private int endNum ;
 	
+	// 기본 생성자
+	public Criteria() {}
+	
 	/**
 	 * 생성자를 통해 페이지 번호와 페이지 당 게시물의 수를 매개 변수로 받아서
 	 * 시작번호와 끝 번호를 구함
