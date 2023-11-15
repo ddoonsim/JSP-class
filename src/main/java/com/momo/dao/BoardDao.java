@@ -63,7 +63,6 @@ public class BoardDao extends DBConnPool{
 			
 			if(rs.next()) {
 				res = rs.getInt(1) ;
-				System.out.println("총 게시물 개수 : " + res);
 			}
 		} 
 		catch (SQLException e) {
