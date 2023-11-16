@@ -161,6 +161,7 @@
 	// 7페이지 요청 : 올림(7/10.0) * 10
 	// 11페이지 요청 : 올림(11/10.0) * 10
 	endNo = (int)((Math.ceil(cri.getPageNo() / pagePerBlock)) * pagePerBlock) ;
+	// 2. 시작번호 구하기
 	startNo = endNo - ((int)pagePerBlock - 1) ;
 	
 	// 페이지 블럭을 생성
