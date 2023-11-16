@@ -131,46 +131,8 @@
 	- 한 페이지 당 게시물 개수 amount
 		* 진짜 블럭의 최종 번호
 -->
-
-<%
-	out.print("<br>페이지 블럭 시작======================================================") ;
-	
-	// 올림 연산을 위해서 double타입으로 선언
-	// java에서 int/int = int
-	double pagePerBlock = 10.0 ;
-	int startNo = 0 ;
-	int endNo = 0 ;
-	Criteria cri = new Criteria() ;
-	int totalCnt = 0 ;
-	
-	if(request.getAttribute("cri") != null && 
-		!"".equals(request.getAttribute("cri"))) {
-		cri = (Criteria)request.getAttribute("cri") ;
-		out.print("<br>요청 페이지 번호 - pageNo : " + cri.getPageNo()) ;
-		out.print("<br>페이지 당 게시물 개수 - amount : " + cri.getAmount()) ;
-	}
-	
-	if(request.getAttribute("totalCnt") != null && 
-		!"".equals(request.getAttribute("totalCnt"))) {
-		totalCnt = Integer.parseInt(request.getAttribute("totalCnt").toString()) ;
-		out.print("<br>총 게시물 개수 : " + totalCnt + "<br>") ;
-	}
-	
-	// 페이지 블럭의 시작번호와 끝번호 구하기
-	// 1. 끝번호 구하기
-	// 7페이지 요청 : 올림(7/10.0) * 10
-	// 11페이지 요청 : 올림(11/10.0) * 10
-	endNo = (int)((Math.ceil(cri.getPageNo() / pagePerBlock)) * pagePerBlock) ;
-	// 2. 시작번호 구하기
-	startNo = endNo - ((int)pagePerBlock - 1) ;
-	
-	// 페이지 블럭을 생성
-	for(int i = startNo; i <= endNo; i++) {
-		out.print("<a href='/boardList?pageNo=" + i + "'>" + i + "</a> ") ;
-	}
-	
-%>
-
+<!-- pageNavi include -->
+<%@include file="pageNavi.jsp" %>
 
 </body>
 </html>

@@ -18,9 +18,14 @@
 <body>
 
 <%
-	int totalCnt = 160 ;
-	Criteria cri = new Criteria() ;    // pageNo = 1, amount = 10
-	PageDto pageDto = new PageDto(totalCnt, cri) ;
+	PageDto pageDto = null ;
+	// Controller에서 request영역에 저장한 pageDto를 화면에서 사용할 수 있도록 변수에 저장
+	if(request.getAttribute("pageDto") != null && 
+			!"".equals(request.getAttribute("pageDto"))) {
+		pageDto = (PageDto)request.getAttribute("pageDto") ;
+	} else {
+		pageDto = new PageDto(0, new Criteria()) ;
+	}
 %>
 
 <!-- 페이지네이션 -->
@@ -28,7 +33,7 @@
   <ul class="pagination justify-content-center">
   	<!-- 앞으로 가기 버튼 disabled : 클릭 비활성화 -->
     <li class="page-item <%= pageDto.isPrev() ? "" : "disabled" %>">
-      <a class="page-link" href="#">Previous</a>
+      <a class="page-link" href="/boardList?pageNo=<%= pageDto.getStartNo()-1 %>">Previous</a>
     </li>
     <!-- 앞으로가기 버튼 끝 -->
     
@@ -37,14 +42,14 @@
     	
     %>
 		    <li class="page-item <%= pageDto.getCri().getPageNo() == i ? "active" : "" %>">
-		    	<a class="page-link" href="#"><%= i %></a>
+		    	<a class="page-link" href="/boardList?pageNo=<%= i %>"><%= i %></a>
 		    </li>
     
     <% } %>
     
     <!-- 뒤로가기 버튼 시작 -->
     <li class="page-item <%= pageDto.isNext() ? "" : "disabled" %>">
-      <a class="page-link" href="#">Next</a>
+      <a class="page-link" href="/boardList?pageNo=<%= pageDto.getEndNo()+1 %>">Next</a>
     </li>
     <!-- 뒤로가기 버튼 끝 -->
   </ul>
