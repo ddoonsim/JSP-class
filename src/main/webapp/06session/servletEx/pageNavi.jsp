@@ -13,6 +13,9 @@
 	body {
 		margin: 100px ;
 	}
+	nav {
+		padding: 20px ;
+	}
 </style>
 </head>
 <body>
