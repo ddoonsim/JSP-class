@@ -28,7 +28,7 @@ public class BoardDetailController extends HttpServlet {
 		dao.close();
 			
 		request.setAttribute("one", one);
-		request.getRequestDispatcher("06session/servletEx/content.jsp").forward(request, response);
+		request.getRequestDispatcher("06session/servletEx/contentEl.jsp").forward(request, response);
 	}
 
 }
