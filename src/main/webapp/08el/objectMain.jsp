@@ -9,6 +9,15 @@
 </head>
 <body>
 
+<!-- 
+	쿠키, 헤더값을 읽을 수 있는 내장객체를 제공
+	
+	cookie : 쿠키를 읽을 때 사용
+	header : 헤더정보를 읽을 때 사용
+	initParam : web.xml에 설정한 컨텍스트 초기화 매개변수를 읽을 때 사용
+	pageContext : JSP의 pageContext객체와 동일한 역할
+ -->
+
 <%
 	// 쿠키매니저를 이용하여 쿠키 생성
 	CookieManager.makeCookie(response, "elCookie", "표현언어", 100) ;
