@@ -31,6 +31,7 @@
 
 num1 = ${ num1 }, num2 = ${ num2 }, num3 = ${ num3 }, num4 = ${ num4 }
 
+<h3>산술연산</h3>
 <br>num1 + num2 = ${ num1 + num2 }
 <br>num1 - num2 = ${ num1 - num2 }
 <br>num1 * num2 = ${ num1 * num2 }
@@ -38,8 +39,8 @@ num1 = ${ num1 }, num2 = ${ num2 }, num3 = ${ num3 }, num4 = ${ num4 }
 
 <!-- 표현언어를 이용하면 산술연산 시 자동으로 숫자로 형변환
 	(문자 형태의 숫자를 숫자로 변환하여 연산) -->
-<br>num3 / num4 = ${ num3 / num4 }
-<br>num3 % num4 = ${ num3 % num4 }
+<!-- <br>num3 / num4 = ${ num3 / num4 }
+<br>num3 % num4 = ${ num3 % num4 } -->
 
 <!-- 문자 형태의 연산자
 	/ = div
