@@ -43,31 +43,17 @@
 국어점수 : ${ param.ko }점<br>
 영어점수 : ${ param.eng }점<br>
 수학점수 : ${ param.math }점<br>
+<c:set var="avg" value="${ (param.ko + param.eng + param.math)/3 }"/>
+평균 점수는 ${ avg } 점입니다. <br>
+학점은 
+<c:choose>
+	<c:when test="${ avg >= 90 }">A</c:when>
+	<c:when test="${ avg >= 80 }">B</c:when>
+	<c:when test="${ avg >= 70 }">C</c:when>
+	<c:otherwise>D</c:otherwise>
+</c:choose>
+입니다.
 </p>
-
-국어학점 : 
-<c:choose>
-	<c:when test="${ param.ko >= 90 }">A</c:when>
-	<c:when test="${ param.ko >= 80 }">B</c:when>
-	<c:when test="${ param.ko >= 70 }">C</c:when>
-	<c:otherwise>D</c:otherwise>
-</c:choose>
-<br>
-영어학점 : 
-<c:choose>
-	<c:when test="${ param.eng >= 90 }">A</c:when>
-	<c:when test="${ param.eng >= 80 }">B</c:when>
-	<c:when test="${ param.eng >= 70 }">C</c:when>
-	<c:otherwise>D</c:otherwise>
-</c:choose>
-<br>
-수학학점 : 
-<c:choose>
-	<c:when test="${ param.math >= 90 }">A</c:when>
-	<c:when test="${ param.math >= 80 }">B</c:when>
-	<c:when test="${ param.math >= 70 }">C</c:when>
-	<c:otherwise>D</c:otherwise>
-</c:choose>
 
 </body>
 </html>
