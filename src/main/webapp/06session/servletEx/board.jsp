@@ -4,6 +4,7 @@
 <%@page import="com.momo.dao.BoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,24 +103,16 @@
 		<th>조회수</th>
 	</tr>
 
-<%
-	if(request.getAttribute("list") != null) {
-		List<BoardDto> list = (List<BoardDto>)request.getAttribute("list") ;
-	
-		for(BoardDto dto : list) {
-%>
+	<c:forEach var="board" items="${ list }">
 			<tr>
-				<td><%= dto.getNum() %></td>
-				<td><a href="/boardRead?boardNo=<%= dto.getNum() %>"><%= dto.getTitle() %></a></td>
-				<td><%= dto.getContent() %></td>
-				<td><%= dto.getId() %></td>
-				<td><%= dto.getPostdate() %></td>
-				<td><%= dto.getVisitcount() %></td>
+				<td>${ board.getNum() }</td>
+				<td><a href="/boardRead?boardNo=${ board.getNum() }">${ board.getTitle() }</a></td>
+				<td>${ board.getContent() }</td>
+				<td>${ board.getId() }</td>
+				<td>${ board.getPostdate() }</td>
+				<td>${ board.getVisitcount() }</td>
 			</tr>
-<%
-		}
-	}
-%>
+	</c:forEach>
 </table>
 
 
