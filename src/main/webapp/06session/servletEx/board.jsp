@@ -102,19 +102,26 @@
 		<th>작성일</th>
 		<th>조회수</th>
 	</tr>
-
+<!-- 만약 리스트의 사이즈가 0이라면 조회된 데이터가 없습니다 출력 -->
+<!-- 만약 리스트의 사이즈가 0이 아니면 목록 출력 -->
+<c:if test="${ empty list }" var="result">
+	<tr>
+		<td colspan="6">조회된 데이터가 없습니다.</td>
+	</tr>
+</c:if>
+<c:if test="${ not empty list }">
 	<c:forEach var="board" items="${ list }">
-			<tr>
-				<td>${ board.getNum() }</td>
-				<td><a href="/boardRead?boardNo=${ board.getNum() }">${ board.getTitle() }</a></td>
-				<td>${ board.getContent() }</td>
-				<td>${ board.getId() }</td>
-				<td>${ board.getPostdate() }</td>
-				<td>${ board.getVisitcount() }</td>
-			</tr>
+		<tr>
+			<td>${ board.num }</td>
+			<td><a href="/boardRead?boardNo=${ board.num }">${ board.title }</a></td>
+			<td>${ board.content }</td>
+			<td>${ board.id }</td>
+			<td>${ board.postdate }</td>
+			<td>${ board.visitcount }</td>
+		</tr>
 	</c:forEach>
 </table>
-
+</c:if>
 
 <!-- 페이지 네비게이션 작성 
 	- 페이지 번호 pageNo

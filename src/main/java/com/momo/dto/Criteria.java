@@ -12,7 +12,12 @@ public class Criteria {
 	private int endNum ;
 	
 	// 기본 생성자
-	public Criteria() {}
+	public Criteria() {
+		// 시작 번호와 끝 번호 구하기
+		// -> 페이지 조회 쿼리에서 사용됨
+		endNum = this.pageNo * this.amount ;
+		startNum = endNum - (this.amount - 1) ;
+	}
 	
 	/**
 	 * 생성자를 통해 페이지 번호와 페이지 당 게시물의 수를 매개 변수로 받아서
