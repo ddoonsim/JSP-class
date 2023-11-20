@@ -47,28 +47,17 @@
   -->
   
  <form method="get" name="loginForm">
- <%
- 	// getAttribute의 반환 타입은 Object이므로 형변환이 필요
- 	// NPE를 방지하기 위해서 null 체크 진행
- 	// 세션에 id가 저장되어있지 않으면 => 로그인 버튼 출력
- 	// 세션에 id가 저장되어 있으면 => 로그아웃 버튼 출력
- 	if(session.getAttribute("id") != null && 
- 		!"".equals(session.getAttribute("id").toString())) {
- 		// 로그인한 사용자 -> 로그아웃 버튼 출력
- %>
- 		<%= session.getAttribute("id").toString() %>님 환영합니다😊
- 		<button id="logoutBtn">로그아웃</button>
- <%
- 		// -> 세션을 무효화하고 로그인 페이지로 이동
- 	} else {
- 		// 로그인하지 않은 사용자 -> 로그인 버튼 출력 -> 로그인 페이지로 이동
- %>
+ <c:if test="${ empty id }">
+ 	guest님 환영합니다!
  		<button id="loginBtn">로그인</button>
- <%
- 	}
- %>
- </form>
+ </c:if>
+ <c:if test="${ not empty id }">
+ 	${ sessionScope.id }님 환영합니다😊
+ 		<button id="logoutBtn">로그아웃</button>
+ </c:if>
  
+ </form>
+
  <script type="text/javascript">
  	// 화면에서 동적인 처리
  	let logoutBtn = document.querySelector('#logoutBtn') ;
