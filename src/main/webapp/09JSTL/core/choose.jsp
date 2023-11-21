@@ -12,7 +12,13 @@
 <script type="text/javascript">
 	window.onload = function() {
 		submitBtn.addEventListener('click', function() {
-			event.preventDefault() ;
+			// 콘솔에 로그를 찍을 때 ,로 연결하면 객체 정보 확인 가능
+			// 스크립트는 이벤트에 의해서 동작되는 경우가 많다.
+			console.log('event', event) ;
+			// 폼 내부에 버튼이 하나만 있을 때는 이 버튼은 서브밋 버튼이됨
+			// 서브밋 버튼에는 폼을 전송하는 기본이벤트가 정의되어 있음
+			// 유효성검사를 진행하기 위해서는 기본이벤트를 제거하는 작업이 필요!!
+			event.preventDefault() ;    // 기본이벤트를 제거하는 함수
 			// 유효성검사
 			let res = validateForm(testForm) ;
 			if(res) {
@@ -23,6 +29,10 @@
 	}
 	
 	// 유효성검사(validation check)
+	// form 요소를 매개변수로 받아서 form의 요소의 값을 체크
+	// 함수 정의 
+	// function 함수이름(매개변수) {}
+	// form : 변수 이름
 	function validateForm(form) {
 		// 유효성검사 결과 testForm을 submit
 		// 체크로직을 모두 통과했다면 서버에 요청, 체크로직을 통과하지 못하면 메세지 표시
