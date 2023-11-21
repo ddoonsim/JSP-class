@@ -33,5 +33,39 @@
 	<button>전송</button>
 </form>
 
+<hr>
+
+<h2>예외 처리</h2>
+<!-- 
+	c:catch 태그
+	예외가 발생하면 지정한 변수에 에러메시지가 저장되어 전달
+ -->
+
+<%
+	int i = 100 ;
+%>
+<c:catch var="errorMsg">
+<%
+	int res = i / 0 ;
+%>
+</c:catch>
+예외내용 : ${ errorMsg }
+
+<hr>
+<h2>el표현언어에서 예외처리</h2>
+
+<c:set var="num" value="200"/>
+<c:catch var="errorMsg">
+${ "str" + num }
+</c:catch>
+
+예외내용 : ${ errorMsg }
+
+
+
+
+
+
+
 </body>
 </html>
