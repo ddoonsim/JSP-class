@@ -46,16 +46,7 @@
  	* 버튼을 생성했더라도 form안에 버튼이 하나밖에 없다면 해당 버튼은 서브밋 버튼이 됨
   -->
   
- <form method="get" name="loginForm">
-	 <c:if test="${ empty id }">
-	 	guest님 환영합니다!
-	 		<button id="loginBtn">로그인</button>
-	 </c:if>
-	 <c:if test="${ not empty id }">
-	 	${ sessionScope.id }님 환영합니다😊
-	 		<button id="logoutBtn">로그아웃</button>
-	 </c:if>
- </form>
+ <%@ include file="header.jsp" %>
 
  <script type="text/javascript">
  	// 화면에서 동적인 처리

@@ -62,9 +62,17 @@ public class BoardDao extends DBConnPool{
 	 * - 집계함수를 이용하여 게시글의 총 건수 반환
 	 * @return 게시글의 총 건수
 	 */
-	public int getTotalCnt() {
+	public int getTotalCnt(Criteria cri) {
 		int res = 0 ;
-		String sql = "select count(*) from board" ;
+		String where = "" ;
+		// 컬럼명은 인파라미터(?)로 쿼리 작성이 불가능하고 null처리가 필요하기 때문에
+		if(!"".equals(cri.getSearchField())
+				&& !"".equals(cri.getSearchWord())) {
+			where = "where " + cri.getSearchField() 
+							+ " like '%" + cri.getSearchWord() + "%'\r\n" ;
+		}
+		
+		String sql = "select count(*) from board " + where ;
 		
 		try {
 			pstmt = con.prepareStatement(sql) ;
