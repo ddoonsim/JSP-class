@@ -11,19 +11,27 @@
 <body>
 
 <!-- 페이지 네비게이터 -->
+
+
 <nav aria-label="...">
   <ul class="pagination">
-    <li class="page-item disabled">
-      <a class="page-link">Previous</a>
+  	<!-- 이전 페이지로 이동 버튼 시작 -->
+    <li class="page-item ${ pageDto.prev ? '' : 'disable' }">
+      <a class="page-link" onclick="goPage(${ pageDto.startNo - 1 })">Previous</a>
     </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item active" aria-current="page">
-      <a class="page-link" href="#">2</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <!-- 이전 페이지로 이동 버튼 끝 -->
+    
+    <c:forEach begin="${ pageDto.startNo }" end="${ pageDto.endNo }" var="i">
     <li class="page-item">
-      <a class="page-link" href="#">Next</a>
+    	<a class="page-link ${ pageDto.cri.pageNo = i ? 'active' : '' }" href="#">i</a>
     </li>
+    </c:forEach>
+    
+    <!-- 다음 페이지로 이동 버튼 시작 -->
+    <li class="page-item ${ pageDto.next ? '' : 'disable' }">
+      <a class="page-link" onclick="goPage(${ pageDto.endNo + 1 })">Next</a>
+    </li>
+    <!-- 다음 페이지로 이동 버튼 시작 -->
   </ul>
 </nav>
 

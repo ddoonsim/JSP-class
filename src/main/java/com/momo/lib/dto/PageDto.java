@@ -40,4 +40,52 @@ public class PageDto {
 		next = (endNo == realEndNo) ? false : true ;
 	}
 
+	public int getStartNo() {
+		return startNo;
+	}
+
+	public void setStartNo(int startNo) {
+		this.startNo = startNo;
+	}
+
+	public int getEndNo() {
+		return endNo;
+	}
+
+	public void setEndNo(int endNo) {
+		this.endNo = endNo;
+	}
+
+	public int getRealEndNo() {
+		return realEndNo;
+	}
+
+	public void setRealEndNo(int realEndNo) {
+		this.realEndNo = realEndNo;
+	}
+
+	public boolean isPrev() {
+		return prev;
+	}
+
+	public void setPrev(boolean prev) {
+		this.prev = prev;
+	}
+
+	public boolean isNext() {
+		return next;
+	}
+
+	public void setNext(boolean next) {
+		this.next = next;
+	}
+
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+
+	public void setTotalCnt(int totalCnt) {
+		this.totalCnt = totalCnt;
+	}
+
 }

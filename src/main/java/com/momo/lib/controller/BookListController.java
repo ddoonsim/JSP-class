@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.momo.lib.dao.BookDao;
 import com.momo.lib.dto.Criteria;
+import com.momo.lib.dto.PageDto;
 
 @WebServlet("/bookList")
 public class BookListController extends HttpServlet {
@@ -24,6 +25,8 @@ public class BookListController extends HttpServlet {
 									request.getParameter("amount")) ;
 		request.setAttribute("list", dao.getList(cri));
 		
+		PageDto pageDto = new PageDto(dao.totalCnt(), cri) ;
+		request.setAttribute("pageDto", pageDto);
 		
 		dao.close();
 		request.getRequestDispatcher("/lib/bookList.jsp").forward(request, response);
