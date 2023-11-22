@@ -76,30 +76,66 @@
 	 		loginForm.submit() ;
  		}) ;
  	}
+ 	
+ 	window.onload = function() {
+	 	// select 요소의 옵션을 선택하는 방법
+	 	var searchField = '${ pageDto.cri.searchField }' ;
+	 	var options = searchForm.searchField.options ;
+	 	
+	 	for(var i = 0; i < options.length; i++) {
+	 		options[i].removeAttribute("selected") ;
+	 		} 
+	 	
+	 	// select 요소의 옵션의 selected 속성을 부여
+	 	for(var i = 0; i < options.length; i++) {
+	 		if(options[i].value == searchField) {
+	 			options[i].setAttribute("selected", "selected") ;
+	 		} 
+	 		
+	 	}
+ 		
+ 	}
+ 	
+ 	
+ 	// 함수는 onload함수 외부에 작성!!
+ 	/**
+ 	* 입력받은 페이지 번호로 이동
+ 	*/
+ 	function goPage(pageNo) {
+ 		// 파라미터로 넘어온 페이지 번호를 searchForm의 pageNo에 입력
+ 		searchForm.pageNo.value = pageNo ;
+ 		searchForm.submit() ;
+ 	}
  </script>
  
 
 <h2>📋게시판</h2>
 
-<!-- 검색폼 -->
-<form name="searchForm">
-	<table>
-		<tr>
-			<td>
-				<select name="searchField">
-					<!-- 선택된 요소의 value값이 서버로 넘어감 -->
-					<option value="title">제목</option>
-					<option value="content">내용</option>
-					<option value="id">작성자</option>
-				</select>
-				<input type="text" name="searchWord">
-				<button>검색</button>
-			</td>
-		</tr>
-	</table>
-</form>
-
-<table>
+<table width="90%" align="center">
+	<tr>
+		<td>
+		
+		
+<!-- 검색폼 
+searchField : ${ pageDto.cri.searchField }<br>
+searchWord : ${ pageDto.cri.searchWord } -->
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <form class="d-flex" role="search" name="searchForm">
+    	pageNo : <input type="text" name="pageNo" value="${ pageDto.cri.pageNo }">
+		<select name="searchField" class="btn btn-sm dropdown-toggle">
+			<!-- 선택된 요소의 value값이 서버로 넘어감 -->
+			<option value="title" ${ pageDto.cri.searchField eq 'title' ? 'selected' : '' }>제목</option>
+			<option value="content" ${ pageDto.cri.searchField eq 'content' ? 'selected' : '' }>내용</option>
+			<option value="id" ${ pageDto.cri.searchField eq 'id' ? 'selected' : '' }>작성자</option>
+		</select>
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 500px" name="searchWord" value="${ pageDto.cri.searchWord }">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+<!-- 게시글 목록 -->
+<table class="table table-hover">
+	<thead>
 	<tr>
 		<th>일련번호</th>
 		<th>제목</th>
@@ -108,6 +144,7 @@
 		<th>작성일</th>
 		<th>조회수</th>
 	</tr>
+	</thead>
 <!-- 만약 리스트의 사이즈가 0이라면 조회된 데이터가 없습니다 출력 -->
 <!-- 만약 리스트의 사이즈가 0이 아니면 목록 출력 -->
 <c:if test="${ empty list }" var="result">
@@ -116,6 +153,7 @@
 	</tr>
 </c:if>
 <c:if test="${ not empty list }">
+	<tbody>
 	<c:forEach var="board" items="${ list }">
 		<tr>
 			<td>${ board.num }</td>
@@ -126,6 +164,7 @@
 			<td>${ board.visitcount }</td>
 		</tr>
 	</c:forEach>
+	</tbody>
 </table>
 </c:if>
 
@@ -139,6 +178,8 @@
 -->
 <!-- pageNavi include -->
 <%@include file="pageNavi.jsp" %>
-
+</td>
+	</tr>
+</table>
 </body>
 </html>
