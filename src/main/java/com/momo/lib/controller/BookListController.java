@@ -24,6 +24,7 @@ public class BookListController extends HttpServlet {
 									request.getParameter("amount")) ;
 		request.setAttribute("list", dao.getList(cri));
 		
+		
 		dao.close();
 		request.getRequestDispatcher("/lib/bookList.jsp").forward(request, response);
 	}
