@@ -40,8 +40,7 @@
     	검색어를 유지하기 위해 searchForm을 전송하는 goPage 함수 생성
     	링크를 함수호출로 변경 onClick이벤트가 발생하면 goPage()함수를 호출
     	-> 함수의 파라미터로 페이지번호를 넣어주어야 함 -->
-      <a class="page-link"
-      onclick="goPage(<%= pageDto.getStartNo()-1 %>)"> >Previous</a>
+      <a class="page-link" onclick="goPage(<%= pageDto.getStartNo()-1 %>)"> >Previous</a>
     </li>
     <!-- 앞으로가기 버튼 끝 -->
     
@@ -50,16 +49,14 @@
     	
     %>
 		    <li class="page-item <%= pageDto.getCri().getPageNo() == i ? "active" : "" %>">
-		    	<a class="page-link" 
-		    	onclick="goPage(<%= i %>)"><%= i %></a>
+		    	<a class="page-link" onclick="goPage(<%= i %>)"><%= i %></a>
 		    </li>
     
     <% } %>
     
     <!-- 뒤로가기 버튼 시작 -->
     <li class="page-item <%= pageDto.isNext() ? "" : "disabled" %>">
-      <a class="page-link" 
-      onclick="goPage(<%= pageDto.getEndNo()+1 %>)">Next</a>
+      <a class="page-link" onclick="goPage(<%= pageDto.getEndNo()+1 %>)">Next</a>
     </li>
     <!-- 뒤로가기 버튼 끝 -->
   </ul>

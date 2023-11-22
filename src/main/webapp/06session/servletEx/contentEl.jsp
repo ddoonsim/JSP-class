@@ -30,9 +30,16 @@
 <button id="editBtn">수정</button>
 <button id="deleteBtn">삭제</button>
 
+<form action="/boardList" name="searchForm" style="display: none">
+	pageNo : <input type="text" name="pageNo" value="${ param.pageNo }">
+	searchField : <input type="text" name="searchField" value="${ param.searchField }">
+	searchWord : <input type="text" name="searchWord" value="${ param.searchWord }">
+</form>
+
 <script type="text/javascript">
 	backBtn.addEventListener('click', ()=>{
-		location.href='/boardList' ;
+		searchForm.submit() ;
+		
 	})
 	deleteBtn.addEventListener('click', ()=>{
 		// jsp를 단독으로 실행할 경우, 경로문제가 발생하지 않음

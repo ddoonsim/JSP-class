@@ -95,17 +95,33 @@
  	function goPage(pageNo) {
  		// 파라미터로 넘어온 페이지 번호를 searchForm의 pageNo에 입력
  		searchForm.pageNo.value = pageNo ;
+ 		searchForm.action = '/boardList' ;
+ 		searchForm.submit() ;
+ 	}
+ 	
+ 	/**
+ 	* 상세페이지로 이동
+ 	*/
+ 	function goDetail(num) {
+ 		/*
+ 		/boardRead?boardNo=${ board.num }
+							&pageNo=${ param.pageNo }
+							&searchField=${ param.searchField }
+							&searchWord=${ param.searchWord }
+ 		*/
+ 		searchForm.num.value = num ;
+ 		searchForm.action = '/boardRead' ;
  		searchForm.submit() ;
  	}
  </script>
  
 
-<h2>📋게시판</h2>
 
 <table width="90%" align="center">
 	<tr>
 		<td>
-		
+
+<h2>📋게시판</h2>
 		
 <!-- 검색폼 
 searchField : ${ pageDto.cri.searchField }<br>
@@ -114,6 +130,7 @@ searchWord : ${ pageDto.cri.searchWord } -->
   <div class="container-fluid">
     <form class="d-flex" role="search" name="searchForm">
     	pageNo : <input type="text" name="pageNo" value="${ pageDto.cri.pageNo }">
+    	num : <input type="text" name="num" value="">
 		<select name="searchField" class="btn btn-sm dropdown-toggle">
 			<!-- 선택된 요소의 value값이 서버로 넘어감 -->
 			<option value="title" ${ pageDto.cri.searchField eq 'title' ? 'selected' : '' }>제목</option>
@@ -148,7 +165,8 @@ searchWord : ${ pageDto.cri.searchWord } -->
 	<c:forEach var="board" items="${ list }">
 		<tr>
 			<td>${ board.num }</td>
-			<td><a href="/boardRead?boardNo=${ board.num }">${ board.title }</a></td>
+			<td><a onclick="goDetail(${ board.num })">
+							${ board.title }</a></td>
 			<td>${ board.content }</td>
 			<td>${ board.id }</td>
 			<td>${ board.postdate }</td>

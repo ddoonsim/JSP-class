@@ -18,7 +18,7 @@ public class BoardDetailController extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String num = request.getParameter("boardNo") ;
+		String num = request.getParameter("num") ;
 		
 		BoardDao dao = new BoardDao() ;
 		// 조회수 증가
