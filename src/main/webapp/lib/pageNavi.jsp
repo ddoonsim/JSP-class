@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,29 +10,22 @@
 </head>
 <body>
 
-<!-- header 외부파일 인클루드 -->
-<%@ include file="common/header.jsp" %>
-
-<!-- 도서목록을 출력 -->
-도서목록을 출력
-<table class="table table-hover">
-	<tr>
-		<th scope="col">번호</th>
-		<th scope="col">제목</th>
-		<th scope="col">저자</th>
-	</tr>
-	<c:forEach items="${ list }" var="book">
-		<tr>
-			<td>${ book.no }</td>
-			<td>${ book.title }</td>
-			<td>${ book.author }</td>
-		</tr>
-	</c:forEach>
-</table>
-
-<%@ include file="pageNavi.jsp" %>
-<!-- footer 외부파일 인클루드 -->
-<%@ include file="common/footer.jsp" %>
+<!-- 페이지 네비게이터 -->
+<nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active" aria-current="page">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 

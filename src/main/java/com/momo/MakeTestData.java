@@ -12,9 +12,8 @@ public class MakeTestData extends DBConnection{
 	/**
 	 * board 테이블에 데이터를 삽입
 	 */
-	public void insert() {
-		String sql = "insert into board  (num, title, content, id) \r\n"
-				+ "    values (seq_board_num.nextval, '제목'||seq_board_num.currval||'입니다', '내용'||seq_board_num.currval||'입니다', 'test')" ;
+	public void insert(int i) {
+		String sql = "INSERT INTO BOOK VALUES (" + i + ", '책" + i +"', 'N', '작가" + i + "')" ;
 		
 		try {
 			pstmt = con.prepareStatement(sql) ;
@@ -34,8 +33,8 @@ public class MakeTestData extends DBConnection{
 	 */
 	public static void main(String[] args) {
 		MakeTestData d = new MakeTestData() ;
-		for(int i=0; i < 100; i++) {
-			d.insert();
+		for(int i=100; i < 201; i++) {
+			d.insert(i);
 		}
 		d.close();    // 자원 반납
 	}
