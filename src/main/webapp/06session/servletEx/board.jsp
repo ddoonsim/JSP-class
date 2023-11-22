@@ -77,9 +77,27 @@
  		}) ;
  	}
  </script>
-
+ 
 
 <h2>📋게시판</h2>
+
+<!-- 검색폼 -->
+<form name="searchForm">
+	<table>
+		<tr>
+			<td>
+				<select name="searchField">
+					<!-- 선택된 요소의 value값이 서버로 넘어감 -->
+					<option value="title">제목</option>
+					<option value="content">내용</option>
+					<option value="id">작성자</option>
+				</select>
+				<input type="text" name="searchWord">
+				<button>검색</button>
+			</td>
+		</tr>
+	</table>
+</form>
 
 <table>
 	<tr>

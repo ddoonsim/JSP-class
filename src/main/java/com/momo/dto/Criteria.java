@@ -5,11 +5,15 @@ package com.momo.dto;
  */
 public class Criteria {
 	
-	private int pageNo = 1 ;
-	private int amount = 10 ;
+	private int pageNo = 1 ;     // 페이지 번호
+	private int amount = 10 ;    // 페이지 당 게시물 개수
 	
-	private int startNum ;
-	private int endNum ;
+	private String searchField = "" ;    // 검색필드
+	private String searchWord = "" ;     // 검색어
+	
+	// 페이지 번호와 페이지 당 게시물의 개수를 받아서 조회할 게시글의 시작 번호와 끝 번호를 구함
+	private int startNum ;    // 조회할 게시글의 시작 번호
+	private int endNum ;      // 조회할 게시글의 끝 번호
 	
 	// 기본 생성자
 	public Criteria() {
@@ -36,6 +40,27 @@ public class Criteria {
 		
 		endNum = this.pageNo * this.amount ;
 		startNum = endNum - (this.amount - 1) ;
+	}
+	
+	public Criteria(String pageNo, String amount, String searchField, String searchWord) {
+		
+		if(pageNo != null && !"".equals(pageNo)) {
+			this.pageNo = Integer.parseInt(pageNo);
+		}
+		if(amount != null && !"".equals(amount)) {
+			this.amount = Integer.parseInt(amount);
+		}
+		
+		endNum = this.pageNo * this.amount ;
+		startNum = endNum - (this.amount - 1) ;
+		
+		// 검색어 세팅
+		if(searchField != null && !"".equals(searchField)) {
+			this.searchField = searchField ;
+		}
+		if(searchWord != null && !"".equals(searchWord)) {
+			this.searchWord = searchWord ;
+		}
 	}
 
 	public int getPageNo() {
@@ -68,6 +93,32 @@ public class Criteria {
 
 	public void setEndNum(int endNum) {
 		this.endNum = endNum;
+	}
+
+	public String getSearchField() {
+		return searchField;
+	}
+
+	public void setSearchField(String searchField) {
+		this.searchField = searchField;
+	}
+
+	public String getSearchWord() {
+		return searchWord;
+	}
+
+	public void setSearchWord(String searchWord) {
+		this.searchWord = searchWord;
+	}
+	
+	@Override
+	public String toString() {
+		// 재정의하지 않으면 객체의 메모리주소값 출력
+		// toString메서드를 재정의하여 객체가 가진 필드값을 출력
+		return "[searchWord] : " + searchWord
+				 + "\n[searchField] : " + searchField 
+				 + "\n[pageNo] : " + pageNo 
+				 + "\n[amount] : " + amount;
 	}
 
 }

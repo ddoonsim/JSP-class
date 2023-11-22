@@ -9,6 +9,7 @@ public class BoardDto {
 	private String postdate ;
 	private String visitcount ;
 	
+	public BoardDto() {}
 	
 	public BoardDto(String num, String title, String content, String id, String postdate, String visitcount) {
 		super();

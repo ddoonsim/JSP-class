@@ -16,9 +16,13 @@ public class BoardListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		// 리스트를 조회하기 위한 파라미터 수집
 		Criteria cri = new Criteria(request.getParameter("pageNo"), 
-				request.getParameter("amount")) ; 
+				request.getParameter("amount"), 
+				request.getParameter("searchField"), 
+				request.getParameter("searchWord")) ; 
+		System.out.println(cri);
 		
 		// 리스트 조회 후 요청 영역에 저장
 		BoardDao dao = new BoardDao() ;
