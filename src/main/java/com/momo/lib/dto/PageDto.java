@@ -42,6 +42,8 @@ public class PageDto {
 		//System.out.println("startNo : " + startNo);
 		//System.out.println("endNo : " + endNo);
 		//System.out.println("realEndNo : " + realEndNo);
+		//System.out.println("prev : " + prev);
+		//System.out.println("next : " + next);
 	}
 
 	public int getStartNo() {

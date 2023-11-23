@@ -30,12 +30,12 @@
         </li>
       <c:if test="${ not empty sessionScope.id }">
         <li class="nav-item">
-          <a class="nav-link" href="/logOut">🎃Logout</a>
+          <a class="nav-link navbar-brand" href="/logOut">🎃Logout</a>
         </li>
       </c:if>
       <c:if test="${ empty sessionScope.id }">
         <li class="nav-item">
-          <a class="nav-link" href="/lib/loginForm.jsp">🆔Login</a>
+          <a class="nav-link navbar-brand" href="/lib/loginForm.jsp">🆔Login</a>
         </li>
       </c:if>
       </ul>
