@@ -55,6 +55,12 @@ public class BookDao extends DBConnPool {
 		return list ;
 	}
 	
+	/**
+	 * 목록의 총 개수를 조회 후 반환
+	 * @param searchField
+	 * @param searchWord
+	 * @return 목록의 총 개수(int)
+	 */
 	public int totalCnt(String searchField, String searchWord) {
 		int totalCnt = 0 ;
 		String where = "" ;

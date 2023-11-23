@@ -39,9 +39,9 @@ public class PageDto {
 		prev = (startNo == 1) ? false : true ;
 		next = (endNo == realEndNo) ? false : true ;
 		
-		System.out.println("startNo : " + startNo);
-		System.out.println("endNo : " + endNo);
-		System.out.println("realEndNo : " + realEndNo);
+		//System.out.println("startNo : " + startNo);
+		//System.out.println("endNo : " + endNo);
+		//System.out.println("realEndNo : " + realEndNo);
 	}
 
 	public int getStartNo() {
