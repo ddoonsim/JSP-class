@@ -24,6 +24,12 @@
 <h2>🆔로그인</h2>
 <hr>
 
+<c:if test="${ success eq '1' }">
+	<script type="text/javascript">
+		alert('회원가입되었습니다😊 \r\n 로그인 후 진행해주세요!') ;
+	</script>
+</c:if>
+
 <c:if test="${ param.isError eq '1' }">
 	<script type="text/javascript">
 		alert('⚠️로그인/비밀번호를 확인해주세요.') ;

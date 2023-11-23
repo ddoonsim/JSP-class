@@ -26,9 +26,11 @@ public class MemberDao extends DBConnPool{
 			rs = pstmt.executeQuery() ;
 			if(rs.next()) {
 				// 로그인 성공
-				memberDto.setId(rs.getString(1));
-				memberDto.setName(rs.getString(2));
-				memberDto.setRegidate(rs.getString(4));
+				memberDto.setId(rs.getString("id"));
+				memberDto.setPass(rs.getString("pass"));
+				memberDto.setName(rs.getString("name"));
+				memberDto.setRegidate(rs.getString("regidate"));
+				memberDto.setEmail(rs.getString("email"));
 				
 				// 사용자 정보를 MemeberDto객체에 담아서 반환
 				return memberDto ;
@@ -44,5 +46,26 @@ public class MemberDao extends DBConnPool{
 		close() ;    // 자원 반납
 		return null ;
 	}
+
+	
+	/**
+	 * Member 테이블에 회원 추가
+	 */
+	public void newMember(String id, String name, String email, String pw) {
+		String sql = "insert into member (id, pass, name, regidate, email)\r\n"
+				+ "values('"+id+"', '"+pw+"', '"+name+"', sysdate, '"+email+"')" ;
+		
+		try {
+			stmt = con.createStatement() ;
+			int n = stmt.executeUpdate(sql) ;
+			System.out.println("Member테이블에 " + n + "건 추가되었습니다.");
+		} 
+		catch (SQLException e) {
+			System.out.println("회원 추가 쿼리 실행 중 예외 발생");
+			e.printStackTrace();
+		}
+		
+	}
+	
 
 }

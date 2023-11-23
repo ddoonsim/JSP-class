@@ -77,7 +77,7 @@ public class BookDao extends DBConnPool {
 			if(rs.next()) {
 				totalCnt = rs.getInt(1) ;
 			}
-			System.out.println("totalCnt : " + totalCnt);
+			//System.out.println("totalCnt : " + totalCnt);
 		} 
 		catch (SQLException e) {
 			System.out.println("게시물 총 개수 구하는 쿼리에서 예외 발생");
