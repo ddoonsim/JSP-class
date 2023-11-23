@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,9 +28,16 @@
         <li class="nav-item">
           <a class="nav-link" href="#">BookList</a>
         </li>
+      <c:if test="${ not empty sessionScope.id }">
+        <li class="nav-item">
+          <a class="nav-link" href="/logOut">🎃Logout</a>
+        </li>
+      </c:if>
+      <c:if test="${ empty sessionScope.id }">
         <li class="nav-item">
           <a class="nav-link" href="/lib/loginForm.jsp">🆔Login</a>
         </li>
+      </c:if>
       </ul>
     </div>
   </div>
