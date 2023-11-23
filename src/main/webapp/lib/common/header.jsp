@@ -28,7 +28,7 @@
           <a class="nav-link" href="#">BookList</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">🆔Login</a>
+          <a class="nav-link" href="/lib/loginForm.jsp">🆔Login</a>
         </li>
       </ul>
     </div>
