@@ -26,7 +26,7 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">BookList</a>
+          <a class="nav-link" href="/bookList">BookList</a>
         </li>
       <c:if test="${ not empty sessionScope.id }">
         <li class="nav-item">

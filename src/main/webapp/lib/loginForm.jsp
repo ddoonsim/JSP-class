@@ -18,6 +18,9 @@
 </head>
 <body>
 
+<!-- header 외부파일 인클루드 -->
+<%@ include file="common/header.jsp" %>
+
 <h2>🆔로그인</h2>
 <hr>
 

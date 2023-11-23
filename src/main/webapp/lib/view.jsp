@@ -16,6 +16,9 @@
 </head>
 <body>
 
+<!-- header 외부파일 인클루드 -->
+<%@ include file="common/header.jsp" %>
+
 <h2>🔍도서 상세 정보</h2>
 <br><br>
 
