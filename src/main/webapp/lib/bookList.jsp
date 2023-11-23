@@ -21,9 +21,14 @@
 <%@ include file="common/header.jsp" %>
 
 <!-- 도서목록을 출력 -->
-도서목록을 출력
+<h2>📚도서 목록</h2>
 <form name="bookForm">
-pageNo : <input type="text" name="pageNo" value="${ pageDto.cri.pageNo }">
+
+<!-- 도서 검색창 -->
+
+
+<input type="text" name="pageNo" value="${ pageDto.cri.pageNo }" style="display: none">
+ 
 <table class="table table-hover">
 	<tr>
 		<th scope="col">번호</th>
