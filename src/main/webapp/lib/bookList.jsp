@@ -22,10 +22,21 @@
 
 <!-- 도서목록을 출력 -->
 <h2>📚도서 목록</h2>
-<form name="bookForm">
 
 <!-- 도서 검색창 -->
+  <div class="container-fluid">
+    <form class="d-flex" role="search" name="searchForm">
+    	<select class="btn btn-outline-secondary btn-sm dropdown-toggle" name="searchField">
+    		<option value="title">제목</option>
+    		<option value="author">저자</option>
+    	</select>
+      <input class="form-control me-2" type="search" name="searchWord" placeholder="Search" aria-label="Search" style="width: 200px">
+      <button class="btn btn-outline-success" type="submit" name="searchBtn">Search</button>
+    </form>
+  </div>
 
+<!-- 도서 목록 폼 -->
+<form name="bookForm">
 
 <input type="text" name="pageNo" value="${ pageDto.cri.pageNo }" style="display: none">
  
