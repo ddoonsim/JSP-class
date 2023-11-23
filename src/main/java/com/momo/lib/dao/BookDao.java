@@ -17,9 +17,10 @@ public class BookDao extends DBConnPool {
 	public List<BookDto> getList(Criteria cri) {
 		List<BookDto> list = new ArrayList<>() ;
 		
-		String sql = "select * from (select rownum, b.* \r\n"
-				+ "                from book b order by no desc)\r\n"
-				+ "where rownum between ? and ?" ;
+		String sql = "select * \r\n"
+				+ "from (select rownum rnum, b.* \r\n"
+				+ "        from (select * from book order by no desc) b)\r\n"
+				+ "where rnum between ? and ?" ;
 		
 		try {
 			pstmt = con.prepareStatement(sql) ;

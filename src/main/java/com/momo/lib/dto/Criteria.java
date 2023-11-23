@@ -19,6 +19,10 @@ public class Criteria {
 		
 		endNum = this.pageNo * this.amount ;
 		startNum = endNum - (this.amount - 1) ;
+		
+		System.out.println("pageNo : " + pageNo);
+		System.out.println("startNum : " + startNum);
+		System.out.println("endNum : " + endNum);
 	}
 
 	public int getPageNo() {

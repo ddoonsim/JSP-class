@@ -7,6 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<style type="text/css">
+	body {
+		padding: 10% ;
+		padding-left: 20% ;
+		padding-right: 20% ;
+	}
+</style>
 </head>
 <body>
 
@@ -16,7 +23,7 @@
 <!-- 도서목록을 출력 -->
 도서목록을 출력
 <form name="bookForm">
-
+pageNo : <input type="text" name="pageNo" value="${ pageDto.cri.pageNo }">
 <table class="table table-hover">
 	<tr>
 		<th scope="col">번호</th>
