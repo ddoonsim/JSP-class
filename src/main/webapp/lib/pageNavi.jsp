@@ -23,7 +23,7 @@
     
     <c:forEach begin="${ pageDto.startNo }" end="${ pageDto.endNo }" var="i">
     <li class="page-item">
-    	<a class="page-link ${ pageDto.cri.pageNo = i ? 'active' : '' }" href="#">i</a>
+    	<a class="page-link ${ pageDto.cri.pageNo eq i ? 'active' : '' }" href="#">${ i }</a>
     </li>
     </c:forEach>
     

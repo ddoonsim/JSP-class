@@ -16,7 +16,7 @@
 <!-- 도서목록을 출력 -->
 도서목록을 출력
 <form name="bookForm">
-pageNo : <input type="text" name="pageNo" value="${ pageDto.cri.pageNo }">
+
 <table class="table table-hover">
 	<tr>
 		<th scope="col">번호</th>

@@ -28,7 +28,7 @@ public class PageDto {
 		this.cri = cri ;
 		
 		// 페이지 블럭의 시작번호 & 끝번호 구하기
-		endNo = (int)Math.ceil((cri.getPageNo()/(double)blockAmount) * blockAmount) ;
+		endNo = (int)(Math.ceil(cri.getPageNo()/(double)blockAmount) * blockAmount) ;
 		startNo = endNo - (blockAmount - 1) ;
 		
 		// 진짜 페이지 끝 번호
@@ -38,6 +38,10 @@ public class PageDto {
 		
 		prev = (startNo == 1) ? false : true ;
 		next = (endNo == realEndNo) ? false : true ;
+		
+		System.out.println("startNo : " + startNo);
+		System.out.println("endNo : " + endNo);
+		System.out.println("realEndNo : " + realEndNo);
 	}
 
 	public int getStartNo() {
@@ -86,6 +90,14 @@ public class PageDto {
 
 	public void setTotalCnt(int totalCnt) {
 		this.totalCnt = totalCnt;
+	}
+
+	public Criteria getCri() {
+		return cri;
+	}
+
+	public void setCri(Criteria cri) {
+		this.cri = cri;
 	}
 
 }
