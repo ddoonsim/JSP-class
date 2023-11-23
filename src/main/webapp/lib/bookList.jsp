@@ -13,6 +13,9 @@
 		padding-left: 20% ;
 		padding-right: 20% ;
 	}
+	td:hover {
+		cursor: pointer;
+	}
 </style>
 </head>
 <body>
@@ -24,33 +27,35 @@
 <h2>📚도서 목록</h2>
 
 <!-- 도서 검색창 -->
-  <div class="container-fluid">
-    <form class="d-flex" role="search" name="searchForm">
-    	<select class="btn btn-outline-secondary btn-sm dropdown-toggle" name="searchField">
-    		<option value="title">제목</option>
-    		<option value="author">저자</option>
-    	</select>
-      <input class="form-control me-2" type="search" name="searchWord" placeholder="Search" aria-label="Search" style="width: 200px">
-      <button class="btn btn-outline-success" type="submit" name="searchBtn">Search</button>
-    </form>
-  </div>
+
 
 <!-- 도서 목록 폼 -->
 <form name="bookForm">
 
+    	<select class="btn btn-outline-secondary btn-sm dropdown-toggle" name="searchField">
+    		<option value="title" ${ param.searchField eq 'title' ? 'selected' : '' }>제목</option>
+    		<option value="author" ${ param.searchField eq 'author' ? 'selected' : '' }>저자</option>
+    	</select>
+      <input class="form-text" type="text" name="searchWord" style="height: 30px" 
+      					value="${ param.searchWord }" placeholder="Search" aria-label="Search" style="width: 200px">
+      <button class="btn btn-sm btn-outline-success" type="submit" name="searchBtn">Search</button>
+
 <input type="text" name="pageNo" value="${ pageDto.cri.pageNo }" style="display: none">
+<input type="text" name="no" value="" style="display: none">
  
 <table class="table table-hover">
 	<tr>
 		<th scope="col">번호</th>
 		<th scope="col">제목</th>
 		<th scope="col">저자</th>
+		<th scope="col">대여 여부</th>
 	</tr>
 	<c:forEach items="${ list }" var="book">
 		<tr>
 			<td>${ book.no }</td>
-			<td>${ book.title }</td>
+			<td><a onclick="goDetail(${ book.no })">${ book.title }</a></td>
 			<td>${ book.author }</td>
+			<td>${ book.rentYnStr }</td>
 		</tr>
 	</c:forEach>
 </table>
@@ -62,6 +67,11 @@
 		bookForm.action = "/bookList" ;
 		bookForm.submit() ;
 	} 
+	function goDetail(no) {
+		bookForm.no.value = no ;
+		bookForm.action="/view" ;
+		bookForm.submit() ;
+	}
 </script>
 
 <%@ include file="pageNavi.jsp" %>

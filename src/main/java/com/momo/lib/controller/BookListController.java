@@ -23,9 +23,12 @@ public class BookListController extends HttpServlet {
 		BookDao dao = new BookDao() ;
 		Criteria cri = new Criteria(request.getParameter("pageNo"), 
 									request.getParameter("amount")) ;
-		request.setAttribute("list", dao.getList(cri));
 		
-		PageDto pageDto = new PageDto(dao.totalCnt(), cri) ;
+		String searchField = request.getParameter("searchField") ;
+		String searchWord = request.getParameter("searchWord") ;
+		request.setAttribute("list", dao.getList(cri, searchField, searchWord));
+		
+		PageDto pageDto = new PageDto(dao.totalCnt(searchField, searchWord), cri) ;
 		request.setAttribute("pageDto", pageDto);
 		
 		dao.close();
