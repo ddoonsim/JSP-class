@@ -18,7 +18,7 @@
 <!-- 페이지 네비게이터 -->
 
 <nav aria-label="...">
-  <ul class="pagination">
+  <ul class="pagination justify-content-center">
   	<!-- 이전 페이지로 이동 버튼 시작 -->
     <li class="page-item  ${ pageDto.prev ? '' : 'disabled' }">
       <a class="page-link" onclick="goPage(${ pageDto.startNo - 1 })">Previous</a>

@@ -35,7 +35,7 @@
       </c:if>
       <c:if test="${ empty sessionScope.id }">
         <li class="nav-item">
-          <a class="nav-link navbar-brand" href="/lib/loginForm.jsp">🆔Login</a>
+          <a class="nav-link navbar-brand" href="/lib/login.html">🆔Login</a>
         </li>
       </c:if>
       </ul>
