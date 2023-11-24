@@ -74,6 +74,15 @@
 	}
 </script>
 
+
+<!-- 페이지 블럭을 출력하는 방법
+	1. 요청 컨트롤러에서 pageDto를 request영역에 저장
+	2. pageNavi.jsp를 include
+		- 리스트 페이지의 페이지 블럭을 출력하고 싶은 위치에 
+	3. searchForm을 생성
+		- pageNo 요소가 있어야 함
+ -->
+
 <%@ include file="pageNavi.jsp" %>
 <!-- footer 외부파일 인클루드 -->
 <%@ include file="common/footer.jsp" %>

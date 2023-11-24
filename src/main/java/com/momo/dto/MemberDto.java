@@ -8,6 +8,16 @@ public class MemberDto {
 	public String regidate ;
 	public String email ;
 	
+	public MemberDto() {}
+	
+	public MemberDto(String id, String pass, String name, String regidate, String email) {
+		this.id = id;
+		this.pass = pass;
+		this.name = name;
+		this.regidate = regidate;
+		this.email = email;
+	}
+	
 	public String getId() {
 		return id;
 	}
@@ -37,6 +47,15 @@ public class MemberDto {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	@Override
+	public String toString() {
+		return "id : " + id + 
+				"\nname : " + name + 
+				"\npass : " + pass + 
+				"\nregidate : " + regidate + 
+				"\nemail : " + email ;
 	}
 	
 }

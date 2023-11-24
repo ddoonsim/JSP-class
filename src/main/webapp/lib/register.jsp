@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Register</title>
+    <title>Register</title>
 
     <!-- Custom fonts for this template-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -26,6 +29,30 @@
 		}
 	</style>
 
+	<script type="text/javascript">
+		window.onload = function() {
+			console.log('onload event 발생') ;
+			// 변수 선언
+			// var : 변수의 중복선언이 가능
+			// let- 지역변수, 중복선언이 불가능
+			// const - 지역상수, 중복선언이 불가능 
+			let regBtn = document.querySelector('#regBtn') ;
+			regBtn.addEventListener('click', function(){
+				console.log('회원가입 버튼 클릭') ;
+				// 회원가입 유효성검사
+				
+				// 등록 요청
+				regForm.action = "/regProcess"  // 요청 url 설정
+				regForm.method = "post" ;
+				// 폼을 전송 = 새로운 페이지를 요청
+				regForm.submit() ;
+			});
+			
+		}
+		function validationCheck() {
+			alert('유효성검사') ;
+		}
+	</script>
 </head>
 
 <body class="bg-gradient-primary">
@@ -43,39 +70,34 @@
                                 <h1 class="h4 text-gray-900 mb-4">✨회원가입😎</h1>
                                 
                             </div>
-                            <form class="user" action="/regProcess" name="regForm" method="post">
+                            <form class="user" name="regForm">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" 
+                                    <input type="text" required="required" class="form-control form-control-user" 
                                     	id="id" name="id" placeholder="ID">
-                                <div class="okId" onkeyup="idLength()"></div>✅사용 가능한 아이디입니다.</div>
-                                <div class="noId">❌아이디는 4~12글자이어야 합니다.</div>
-                                <div class="noId2">❌영어 또는 숫자만 가능합니다.</div>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" 
+                                    <input type="text" required="required" class="form-control form-control-user" 
                                     	id="name" name="name" placeholder="Name">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" 
+                                    <input type="email" required="required" class="form-control form-control-user" 
                                     	id="email" name="email" placeholder="Email">
                                 </div>
                                 
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
+                                        <input type="password" required="required" class="form-control form-control-user"
                                             id="pw" name="pw" placeholder="Password">
-                                    <div class="noPw">⚠️8글자 이상, 영문, 숫자, 특수문자(@$#&)를 사용하세요</div>
                                     </div>
                                     
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
+                                        <input type="password" required="required" class="form-control form-control-user"
                                             id="pwCheck" name="pwCheck" placeholder="Repeat Password">
-                                    <div class="notEq">❌비밀번호가 일치하지 않습니다.</div>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary btn-user btn-block">회원가입</button>
+                                <a id="regBtn" class="btn btn-primary btn-user btn-block">회원가입</a>
                                 <hr>
                                 <a href="index.html" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google
@@ -109,28 +131,6 @@
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin-2.min.js"></script>
     
-<!-- 유효성 검사 문구 표시 여부를 결정하는 함수 작성 -->
-<script>
-	// 아이디 길이 여부 확인
-	// 4글자 이상 또는 12글자 이하인 경우 true, 아니면 false를 리턴
-	function idLength(id) {
-		return id.length >= 4 && id.length <= 12 ;
-	}
-	// 영어 또는 숫자가 들어간 경우 true, 아니면 false를 리턴
-	function onlyEngAndNum(id) {
-		 return /^[A-Za-z0-9][A-Za-z0-9]*$/.test(str);
-	}
-	
-	// 비밀번호 유효성 검사
-	function strongPassword (str) {
-  		return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(str);
-	}
-	// 비밀번호 일치 여부 확인
-	// 비밀번호와 비밀번호 확인이 일치할 경우 true, 아니면 false를 리턴
-	function confirmPw(pw1, pw2) {
-		return pw1 === pw2 ;
-	}
-</script>
 
 
 </body>
