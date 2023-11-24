@@ -40,12 +40,12 @@ public class MemberRegController extends HttpServlet {
 			// 페이지 전환 (성공 : 로그인페이지로 이동, 실패 : 뒤로가기)
 			if(res > 0) {
 				// 회원가입 성공
-				request.setAttribute("msg", "회원가입 성공!! 환영합니다! 로그인을 해주세요!");
+				request.setAttribute("msg", "회원가입 성공😄 환영합니다🤗");
 				request.setAttribute("url", "/lib/loginForm.jsp");
 			} else {
 				// 회원가입 실패
 				// ex) 컬럼의 사이즈보다 입력값이 큰 경우, 타입이 맞지 않는 경우 -> 입력화면에서 유효성검증을 추가하여 해결
-				request.setAttribute("msg", "회원가입 실패! 관리자에게 문의해주세요.") ;
+				request.setAttribute("msg", "회원가입 실패😢 관리자에게 문의해주세요.") ;
 			}
 			// 페이지 전환
 			request.getRequestDispatcher("/msgbox.jsp").forward(request, response) ;

@@ -34,24 +34,98 @@
 			console.log('onload event 발생') ;
 			// 변수 선언
 			// var : 변수의 중복선언이 가능
-			// let- 지역변수, 중복선언이 불가능
+			// let - 지역변수, 중복선언이 불가능
 			// const - 지역상수, 중복선언이 불가능 
 			let regBtn = document.querySelector('#regBtn') ;
-			regBtn.addEventListener('click', function(){
-				console.log('회원가입 버튼 클릭') ;
-				// 회원가입 유효성검사
-				
-				// 등록 요청
-				regForm.action = "/regProcess"  // 요청 url 설정
-				regForm.method = "post" ;
-				// 폼을 전송 = 새로운 페이지를 요청
-				regForm.submit() ;
-			});
+			
+			// 익명의 함수를 작성할 수도 있고, 이미 작성한 함수의 이름(이름만!!)을 매개변수로 넘겨줄 수도 있다.
+			// 함수의 이름을 넘겨줄 때에는 함수 이름 뒤에 ()를 붙이면 안됨!!!!!
+			// 함수이름() : 함수를 실행하라는 의미
+			regBtn.addEventListener('click', validationCheck) ;
 			
 		}
+		
 		function validationCheck() {
-			alert('유효성검사') ;
+			// 아이디 유효성 검사
+			if(id.value == "") {
+				alert("⚠️아이디를 입력하세요.") ;
+				id.focus() ;
+				return false ;
+			}
+			if(id.value.length > 10) {
+				alert('⚠️아이디는 10자리까지만 입력이 가능합니다.') ;
+				id.focus() ;
+				return false ;
+			}
+			
+			// 이름 유효성 검사
+			let name = document.querySelector('#name') ;
+			if(name.value == "") {
+				alert("⚠️이름을 입력하세요.") ;
+				name.focus() ;
+				return false ;
+			}
+			if(name.value.length > 15) {
+				alert('⚠️이름의 길이는 15자 이내이어야 합니다.')
+				name.focus() ;
+				return false ;
+			}
+			
+			// 이메일 유효성 검사
+			if(email.value == "") {
+				alert("⚠️이메일을 입력하세요.") ;
+				email.focus() ;
+				return false ;
+			}
+			// 정규식 패턴 문자열을 생성
+			let pattern = /^[\w._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ ;
+			// [영대소문자, 숫자, 기호]한 번 이상 @ [영대소문자, 숫자, ., -]한 번 이상 . 영어대소문자 2번 이상
+			if(!pattern.test(email.value)) {
+				alert('⚠️이메일 형식이 일치하지 않습니다.') ;
+				email.focus() ;
+				return false ;
+			} 
+			if(email.value.length > 100) {
+				alert('⚠️이메일의 길이는 100자를 초과할 수 없습니다.') ;
+				email.focus() ;
+				return false ;
+			}
+			
+			// 비밀번호 유효성 검사
+			if(pw.value == "") {
+				alert("⚠️비밀번호를 입력하세요.") ;
+				pw.focus() ;
+				return false ;
+			}
+			if(pw.value.length > 10) {
+				alert("⚠️비밀번호는 10자 이내이어야 합니다.") ;
+				pw.focus() ;
+				return false ;
+			}
+			
+			// 비밀번호 확인
+			if(pw.value != pwCheck.value) {
+				alert("⚠️비밀번호가 일치하지 않습니다.") ;
+				pwCheck.focus() ;
+				return false ;
+			}
+				
+			// 등록 요청
+			regForm.action = "/regProcess"  // 요청 url 설정
+			regForm.method = "post" ;
+			// 폼을 전송 = 새로운 페이지를 요청
+			regForm.submit() ;
 		}
+		
+		function getByteLength(str) {
+			  // TextEncoder 객체 생성 (UTF-8 사용) : 한글 3byte로 계산됨
+			  var encoder = new TextEncoder('utf-8');
+			  // 문자열을 바이트 배열로 인코딩
+			  var encoded = encoder.encode(str);
+			  // 바이트 배열의 길이 반환
+			  return encoded.length;
+			} 
+
 	</script>
 </head>
 
