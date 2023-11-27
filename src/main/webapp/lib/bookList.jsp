@@ -42,8 +42,8 @@
       					value="${ param.searchWord }" placeholder="Search" aria-label="Search" style="width: 200px">
       	<button class="btn btn-sm btn-outline-success" type="submit" name="searchBtn">Search</button>
 		<!-- 도서검색 부분 끝 -->
-<input type="text" name="pageNo" value="${ pageDto.cri.pageNo }" style="display: none">
-<input type="text" name="no" value="" style="display: none">
+		<input type="text" name="pageNo" value="${ pageDto.cri.pageNo }" style="display: none">
+		<input type="text" name="no" value="" style="display: none">
  
 </form>
 		<div class="table-responsive">
