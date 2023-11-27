@@ -113,5 +113,29 @@ public class BookDao extends DBConnPool {
 		return dto ;
 		
 	}
+	
+	/**
+	 * 도서 등록
+	 * @param title
+	 * @param author
+	 */
+	public int regBook(String title, String author) {
+		int res = 0 ;
+		String sql = "insert into book (no, title, author)\r\n"
+				+ "values(seq_book_no.nextval, '" + title + "', '" + author + "')" ;
+		
+		try {
+			stmt = con.createStatement() ;
+			res = stmt.executeUpdate(sql) ;
+			
+			System.out.println("도서 " + res + "건이 등록되었습니다.");
+		} 
+		catch (SQLException e) {
+			System.out.println("도서 등록 쿼리에 예외 발생");
+			e.printStackTrace();
+		}
+		
+		return res ;
+	}
 
 }
