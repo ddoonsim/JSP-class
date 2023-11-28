@@ -81,8 +81,9 @@
 
 <script type="text/javascript">
 	regBtn.addEventListener('click', function() {
-		bookRegForm.action="/bookRegProcess" ;
-		bookRegForm.method="post" ;
+		bookRegForm.action="/book/regFileupload" ;   // 컨트롤러 변경
+		bookRegForm.enctype="multipart/form-data" ;  // enctype 속성 정의
+		bookRegForm.method="post" ;                  // 전송 방법 설정
 		bookRegForm.submit() ;
 	})
 	cancelBtn.addEventListener('click', function() {

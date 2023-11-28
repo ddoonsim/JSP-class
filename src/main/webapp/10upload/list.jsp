@@ -20,6 +20,7 @@
 		<th>원본파일명</th>
 		<th>저장된 파일명</th>
 		<th>업로드 일자</th>
+		<th>다운로드 파일</th>
 	</tr>
 <c:forEach items="${ list }" var="file">
 	<tr>
@@ -30,9 +31,18 @@
 		<td>${ file.ofile }</td>
 		<td>${ file.sfile }</td>
 		<td>${ file.postdate }</td>
+		<td>
+			<a href="/10upload/fileDownload.jsp?ofile=${ file.ofile }&sfile=${ file.sfile }">
+				파일 다운로드
+			</a>
+		</td>
 	</tr>
 </c:forEach>
 </table>
+<!-- 
+	ofile : 원본파일명
+	sfile : 새 파일명
+ -->
 
 <button id="uploadBtn">파일 업로드</button>
 
